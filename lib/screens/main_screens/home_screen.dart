@@ -73,21 +73,21 @@ class HomeScreen extends StatelessWidget {
                           width: 10,
                         ),
                         FilterChip(
-                          label: Text("Mindfulness"),
+                          label: const Text("Mindfulness"),
                           onSelected: (value) {},
                         ),
                         const SizedBox(
                           width: 10,
                         ),
                         FilterChip(
-                          label: Text("Meditation"),
+                          label: const Text("Meditation"),
                           onSelected: (value) {},
                         ),
                         const SizedBox(
                           width: 10,
                         ),
                         FilterChip(
-                          label: Text("Sleep Stories"),
+                          label: const Text("Sleep Stories"),
                           onSelected: (value) {},
                         ),
                         const SizedBox(
