@@ -11,25 +11,27 @@ class FilterProvider extends ChangeNotifier {
   List<dynamic> _allData = [];
   List<dynamic> _filteredData = [];
 
-  Future<void> getAllData(BuildContext context) async {
-    // Future.delayed(Duration.zero);
-    List<MeditationModel> meditationData =
-        Provider.of<MeditationProvider>(context).meditatonExercise;
+  Future<void> getData(BuildContext context) async {
+    await Future.delayed(Duration.zero); // Ensures this runs after build
 
-    List<MindfulnessModel> mindfullData =
-        Provider.of<MindfulnessProvider>(context).mindfullExercise;
+    final List<MindfulnessModel> mindfullExercise =
+        Provider.of<MindfulnessProvider>(context, listen: false)
+            .mindfullExercise;
 
-    List<SleepStoriesModel> sleepStoriiesData =
-        Provider.of<SleepStoriesProvider>(context).sleepExercise;
+    final List<SleepStoriesModel> sleepContent =
+        Provider.of<SleepStoriesProvider>(context, listen: false).sleepExercise;
+
+    final List<MeditationModel> meditations =
+        Provider.of<MeditationProvider>(context, listen: false)
+            .meditatonExercise;
 
     _allData = [
-      ...meditationData,
-      ...mindfullData,
-      ...sleepStoriiesData,
+      ...mindfullExercise,
+      ...sleepContent,
+      ...meditations,
     ];
 
-    _allData = List.from(_filteredData);
-
+    _filteredData = _allData;
     notifyListeners();
   }
 

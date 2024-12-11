@@ -6,4 +6,6 @@ class AppColors {
   static Color primaryPurple = const Color(0xffdad4ff);
   static Color primaryBlue = const Color(0xff836fff);
   static Color primaryGrey = Colors.black.withOpacity(0.5);
+  static Color primaryGreen = const Color(0xff00c6a9);
+  static Color primaryGrey2 = const Color(0xff7a7498);
 }
