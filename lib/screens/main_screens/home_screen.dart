@@ -83,37 +83,89 @@ class HomeScreen extends StatelessWidget {
                                     width: 10,
                                   ),
                                   FilterChip(
-                                    color: WidgetStatePropertyAll(
-                                        AppColors.primaryBlue),
                                     label: Text(
                                       "All",
                                       style: AppTextStyles.bodyText.copyWith(
-                                        color: AppColors.primaryWhite,
                                         fontSize: 16,
+                                        color: provider.gerSelectCategeory() ==
+                                                "All"
+                                            ? AppColors.primaryWhite
+                                            : AppColors.primaryBlack,
                                       ),
                                     ),
-                                    onSelected: (value) {},
+                                    onSelected: (value) {
+                                      provider.filteredData("All");
+                                    },
+                                    selected:
+                                        provider.gerSelectCategeory() == "All",
+                                    selectedColor: AppColors.primaryBlue,
+                                    showCheckmark: false,
                                   ),
                                   const SizedBox(
                                     width: 10,
                                   ),
                                   FilterChip(
-                                    label: const Text("Mindfulness"),
-                                    onSelected: (value) {},
+                                    label: Text(
+                                      "Mindfulness",
+                                      style: AppTextStyles.bodyText.copyWith(
+                                        fontSize: 16,
+                                        color: provider.gerSelectCategeory() ==
+                                                "Mindfulness"
+                                            ? AppColors.primaryWhite
+                                            : AppColors.primaryBlack,
+                                      ),
+                                    ),
+                                    onSelected: (value) {
+                                      provider.filteredData("Mindfulness");
+                                    },
+                                    selected: provider.gerSelectCategeory() ==
+                                        "Mindfulness",
+                                    selectedColor: AppColors.primaryBlue,
+                                    showCheckmark: false,
                                   ),
                                   const SizedBox(
                                     width: 10,
                                   ),
                                   FilterChip(
-                                    label: const Text("Meditation"),
-                                    onSelected: (value) {},
+                                    label: Text(
+                                      "Meditation",
+                                      style: AppTextStyles.bodyText.copyWith(
+                                        fontSize: 16,
+                                        color: provider.gerSelectCategeory() ==
+                                                "Meditation"
+                                            ? AppColors.primaryWhite
+                                            : AppColors.primaryBlack,
+                                      ),
+                                    ),
+                                    onSelected: (value) {
+                                      provider.filteredData("Meditation");
+                                    },
+                                    selected: provider.gerSelectCategeory() ==
+                                        "Meditation",
+                                    selectedColor: AppColors.primaryBlue,
+                                    showCheckmark: false,
                                   ),
                                   const SizedBox(
                                     width: 10,
                                   ),
                                   FilterChip(
-                                    label: const Text("Sleep Stories"),
-                                    onSelected: (value) {},
+                                    label: Text(
+                                      "Sleep Stories",
+                                      style: AppTextStyles.bodyText.copyWith(
+                                        fontSize: 16,
+                                        color: provider.gerSelectCategeory() ==
+                                                "SleepStories"
+                                            ? AppColors.primaryWhite
+                                            : AppColors.primaryBlack,
+                                      ),
+                                    ),
+                                    onSelected: (value) {
+                                      provider.filteredData("SleepStories");
+                                    },
+                                    selected: provider.gerSelectCategeory() ==
+                                        "SleepStories",
+                                    selectedColor: AppColors.primaryBlue,
+                                    showCheckmark: false,
                                   ),
                                   const SizedBox(
                                     width: 10,
@@ -133,7 +185,7 @@ class HomeScreen extends StatelessWidget {
                               children: getListData.map((e) {
                                 return GestureDetector(
                                   child: Container(
-                                    padding: EdgeInsets.all(8),
+                                    padding: const EdgeInsets.all(8),
                                     decoration: BoxDecoration(
                                       color: e is MeditationModel
                                           ? AppColors.primaryGreen
@@ -152,6 +204,7 @@ class HomeScreen extends StatelessWidget {
                                               AppTextStyles.subTitle.copyWith(
                                             color: AppColors.primaryWhite,
                                             fontWeight: FontWeight.w600,
+                                            fontSize: 20,
                                           ),
                                         ),
                                         const SizedBox(
@@ -163,6 +216,7 @@ class HomeScreen extends StatelessWidget {
                                               AppTextStyles.subTitle.copyWith(
                                             color: AppColors.primaryBlack
                                                 .withOpacity(0.7),
+                                            fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                         const SizedBox(

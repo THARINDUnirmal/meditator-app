@@ -11,6 +11,8 @@ class FilterProvider extends ChangeNotifier {
   List<dynamic> _allData = [];
   List<dynamic> _filteredData = [];
 
+  String _selectedCategeory = "All";
+
   Future<void> getData(BuildContext context) async {
     await Future.delayed(Duration.zero); // Ensures this runs after build
 
@@ -36,4 +38,27 @@ class FilterProvider extends ChangeNotifier {
   }
 
   List<dynamic> get fetchAllData => _filteredData;
+
+  //get selected categeory
+
+  void filteredData(String categeory) {
+    _selectedCategeory = categeory;
+
+    if (categeory == "All") {
+      _filteredData = _allData;
+    } else if (categeory == "Mindfulness") {
+      _filteredData = _allData.whereType<MindfulnessModel>().toList();
+    } else if (categeory == "SleepStories") {
+      _filteredData = _allData.whereType<SleepStoriesModel>().toList();
+    } else if (categeory == "Meditation") {
+      _filteredData = _allData.whereType<MeditationModel>().toList();
+    }
+    notifyListeners();
+  }
+
+  //get selected categeory
+
+  String gerSelectCategeory() {
+    return _selectedCategeory;
+  }
 }
